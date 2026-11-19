@@ -1,11 +1,12 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {load} from 'cheerio';
-import {origin, intro, routeVersion, localRoute, outputPath, dataFile, readJSON} from './common.mjs';
+import {limitScope, origin, intro, routeVersion, localRoute, outputPath, dataFile, readJSON} from './common.mjs';
 import {segments} from './language.mjs';
 import {markComponentHeadings} from './components.mjs';
 
 const scope = readJSON('content/scope.json');
+limitScope(scope);
 const coverage = readJSON('content/coverage.json');
 const sections = readJSON('content/sections.json');
 const pages = new Map();

@@ -40,9 +40,8 @@ try {
   const arLink = page.locator('#search-results a').filter({hasText:'نقاط التوقف'}).first();
   await arLink.click();
   assert.match(page.url(),/layout\/breakpoints\//);
-  await page.locator('#release').selectOption({label:'5.2.3'});
-  await page.waitForURL('**/docs/5.2/layout/breakpoints/');
-  console.log('Desktop alignment, Arabic and English search, section links, and version selection passed.');
+  assert.deepEqual(await page.locator('#release option').allTextContents(),['5.3.8']);
+  console.log('Desktop alignment, Arabic and English search, section links, and the single 5.3.8 release passed.');
 
   await ready(page,'/');
   const code = page.locator('.code-block').first();

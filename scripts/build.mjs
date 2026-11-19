@@ -1,12 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { load } from 'cheerio';
-import { origin, releases, latest, intro, esc, clean, hash, readJSON, writeJSON, writeFile, dataFile, routeFor, routeVersion, localRoute, outputPath, versionHome } from './common.mjs';
+import { limitScope, origin, releases, latest, intro, esc, clean, hash, readJSON, writeJSON, writeFile, dataFile, routeFor, routeVersion, localRoute, outputPath, versionHome } from './common.mjs';
 import { arabic, decorateArabic, eligibleHTML, segments, translate, validTranslation } from './language.mjs';
 import { icon, sectionName, sectionOrder } from './design.mjs';
 import { markComponentHeadings } from './components.mjs';
 
 const scope = readJSON('content/scope.json');
+limitScope(scope);
 const translations = Object.assign(Object.create(null),readJSON('content/translations.json',{}));
 for (const [key,value] of Object.entries(readJSON('content/machine-translations.json',{}))) {
   if (validTranslation(key,value) || !validTranslation(key,translations[key])) translations[key] = value;

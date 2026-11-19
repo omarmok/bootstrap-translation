@@ -4,14 +4,27 @@ import { createHash } from 'node:crypto';
 
 export const origin = 'https://getbootstrap.com';
 export const latest = '5.3';
+// Only the current Bootstrap release is published. Older releases and the 6.0 alpha were removed on request;
+// their extracted content stays in content/ so they can be restored by adding them back here.
 export const releases = {
-  '5.3': '5.3.8', '6.0': '6.0.0-alpha.1',
-  '5.2': '5.2.3', '5.1': '5.1.3', '5.0': '5.0.2',
-  '4.6': '4.6.2', '4.5': '4.5.3', '4.4': '4.4.1', '4.3': '4.3.1',
-  '4.2': '4.2.1', '4.1': '4.1.3', '4.0': '4.0.0',
-  '3.4': '3.4.1', '3.3': '3.3.7',
-  ...Object.fromEntries(['2.3.2','2.3.1','2.3.0','2.2.2','2.2.1','2.2.0','2.1.1','2.1.0','2.0.4','2.0.3','2.0.2','2.0.1','2.0.0','1.4.0','1.3.0','1.2.0','1.1.1','1.1.0','1.0.0'].map(v => [v,v])),
+  '5.3': '5.3.8',
 };
+export const inScope = route => {
+  const version = routeVersion(route);
+  return version === 'عام' || Object.hasOwn(releases, version);
+};
+// Drop pages of removed releases and point official aliases (e.g. /docs/ → 6.0) at the matching 5.3 page.
+export function limitScope(scope) {
+  const pages = Object.fromEntries(Object.entries(scope.pages).filter(([route])=>inScope(route)));
+  const kept = route => pages[route] && !pages[route].alias;
+  for (const item of Object.values(pages)) {
+    if (!item.alias || inScope(item.alias)) continue;
+    const same = item.alias.replace(/^\/(?:docs\/)?\d+\.\d+(?:\.\d+)?\//, `/docs/${latest}/`);
+    item.alias = kept(same) ? same : intro;
+  }
+  scope.pages = pages;
+  return scope;
+}
 export const intro = '/docs/5.3/getting-started/introduction/';
 export const esc = value => String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
 export const clean = text => text.replace(/\s+/gu,' ').trim();
