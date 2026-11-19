@@ -1,0 +1,24 @@
+{
+  "name": "bootstrap-translation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "inventory": "node scripts/collect.mjs",
+    "extract": "node scripts/extract.mjs",
+    "translate": "node scripts/machine-translate.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "start": "node scripts/serve.mjs",
+    "test": "node scripts/browser-test.mjs",
+    "test:audio": "node scripts/native-audio-test.mjs",
+    "translate:local": "node scripts/translate.mjs"
+  },
+  "dependencies": {
+    "cheerio": "1.0.0-rc.12"
+  },
+  "devDependencies": {
+    "bootstrap": "5.3.8",
+    "playwright": "1.62.1"
+  }
+}

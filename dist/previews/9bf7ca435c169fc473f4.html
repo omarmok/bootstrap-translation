@@ -1,0 +1,99 @@
+<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>html{color-scheme:light}body.embed-example{padding:1rem;margin:0}body.embed-example .placeholder-img{font-size:1.125rem;text-anchor:middle}body.embed-example svg{max-width:100%}body.embed-example [class^="bd-example-row"] .row>*{padding-top:.75rem;padding-bottom:.75rem;background:#f0e5ff;border:1px solid #b6a0d1}body.embed-example .modal.position-static,body.embed-example .offcanvas.position-static{display:block}body.embed-example [class*="scrollspy-example"]{position:relative;height:13rem;overflow:auto}body.embed-example .bd-example-offcanvas .offcanvas{position:static;display:block;height:15rem;visibility:visible;transform:none}</style><base href="https://getbootstrap.com/docs/3.3/examples/non-responsive/"><title>Non-responsive Bootstrap</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://getbootstrap.com/docs/3.3/assets/css/ie10-viewport-bug-workaround.css"><link rel="stylesheet" href="https://getbootstrap.com/docs/3.3/examples/non-responsive/non-responsive.css"><script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script></head><body class="">
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- The mobile navbar-toggle button can be safely removed since you do not need it in a non-responsive implementation -->
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
+        <div id="navbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1>Non-responsive Bootstrap</h1>
+        <p class="lead">Disable the responsiveness of Bootstrap by fixing the width of the container and using the first grid system tier. <a href="https://getbootstrap.com/getting-started/#disable-responsive">Read the documentation</a> for more information.</p>
+      </div>
+
+      <h3>What changes</h3>
+      <p>Note the lack of the <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code>, which disables the zooming aspect of sites in mobile devices. In addition, we reset our container's width and changed the navbar to prevent collapsing, and are basically good to go.</p>
+
+      <h3>Regarding navbars</h3>
+      <p>As a heads up, the navbar component is rather tricky here in that the styles for displaying it are rather specific and detailed. Overrides to ensure desktop styles display are not as performant or sleek as one would like. Just be aware there may be potential gotchas as you build on top of this example when using the navbar.</p>
+
+      <h3>Browsers, scrolling, and fixed elements</h3>
+      <p>Non-responsive layouts highlight a key drawback to fixed elements. <strong class="text-danger">Any fixed component, such as a fixed navbar, will not be scrollable when the viewport becomes narrower than the page content.</strong> In other words, given the non-responsive container width of 970px and a viewport of 800px, you'll potentially hide 170px of content.</p>
+      <p>There is no way around this as it's default browser behavior. The only solution is a responsive layout or using a non-fixed element.</p>
+
+      <h3>Non-responsive grid system</h3>
+      <div class="row">
+        <div class="col-xs-4">One third</div>
+        <div class="col-xs-4">One third</div>
+        <div class="col-xs-4">One third</div>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  
+
+<script>document.addEventListener('DOMContentLoaded',()=>{
+  if (window.bootstrap?.Tooltip) {
+    document.querySelectorAll('[data-bs-toggle="tooltip"],[data-toggle="tooltip"]').forEach(el=>new bootstrap.Tooltip(el,{container:'body'}));
+    document.querySelectorAll('[data-bs-toggle="popover"],[data-toggle="popover"]').forEach(el=>new bootstrap.Popover(el,{container:'body'}));
+    document.querySelectorAll('[data-bs-spy="scroll"]').forEach(el=>bootstrap.ScrollSpy?.getOrCreateInstance?.(el));
+    document.querySelectorAll('[data-bs-toggle="toast"], #liveToastBtn').forEach(el=>el.addEventListener('click',()=>{
+      const selector=el.dataset.bsTarget||'#liveToast'; const toast=document.querySelector(selector); if(toast) bootstrap.Toast.getOrCreateInstance(toast).show();
+    }));
+  } else if (window.jQuery) {
+    jQuery('[data-toggle="tooltip"]').tooltip?.({container:'body'});
+    jQuery('[data-toggle="popover"]').popover?.({container:'body'});
+  }
+  document.querySelectorAll('#liveAlertBtn').forEach(button=>button.addEventListener('click',()=>{
+    const placeholder=document.querySelector('#liveAlertPlaceholder');if(!placeholder)return;
+    const alert=document.createElement('div');alert.className='alert alert-success alert-dismissible';alert.setAttribute('role','alert');
+    alert.textContent='Nice, you triggered this alert message!';
+    const close=document.createElement('button');close.type='button';close.className='btn-close';close.dataset.bsDismiss='alert';close.setAttribute('aria-label','Close');alert.append(close);placeholder.append(alert);
+  }));
+  document.querySelectorAll('.toast.show').forEach(el=>el.querySelector('[data-bs-dismiss="toast"]')?.addEventListener('click',()=>el.classList.remove('show')));
+});</script></body></html>

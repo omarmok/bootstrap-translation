@@ -1,0 +1,28 @@
+Bootstrap bilingual documentation reader
+قارئ توثيق Bootstrap بالعربية والإنجليزية
+
+Original documentation and examples by the Bootstrap team and contributors.
+Original site: https://getbootstrap.com/
+Original source: https://github.com/twbs/bootstrap
+Each reader page links to the original version of that page.
+
+Adaptations include the Arabic translation, parallel presentation, navigation,
+search, pronunciation aids, and packaging of interactive examples.
+
+The Bootstrap documentation is licensed under Creative Commons Attribution 3.0:
+https://creativecommons.org/licenses/by/3.0/
+Older v1/v2 releases are also subject to the notices in their archived sources:
+https://getbootstrap.com/docs/versions/
+
+Bootstrap code from v3.1.0 onward is licensed under the MIT License.
+https://github.com/twbs/bootstrap/blob/v5.3.8/LICENSE
+Versions predating v3.1.0 use the Apache License, Version 2.0.
+https://www.apache.org/licenses/LICENSE-2.0
+
+Bootstrap 1.x and 2.x: Copyright Twitter, Inc.
+Bootstrap 3.x and later: Copyright the Bootstrap Authors, including historical
+notices for Twitter, Inc., Mark Otto, and Jacob Thornton in upstream releases.
+Third-party package notices remain with their original packages.
+
+The bootstrap-*.txt files in this directory contain the corresponding
+upstream release license notices.

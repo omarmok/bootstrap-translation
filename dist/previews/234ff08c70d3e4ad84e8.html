@@ -1,0 +1,23 @@
+<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>html{color-scheme:light}body.embed-example{padding:1rem;margin:0}body.embed-example .placeholder-img{font-size:1.125rem;text-anchor:middle}body.embed-example svg{max-width:100%}body.embed-example [class^="bd-example-row"] .row>*{padding-top:.75rem;padding-bottom:.75rem;background:#f0e5ff;border:1px solid #b6a0d1}body.embed-example .modal.position-static,body.embed-example .offcanvas.position-static{display:block}body.embed-example [class*="scrollspy-example"]{position:relative;height:13rem;overflow:auto}body.embed-example .bd-example-offcanvas .offcanvas{position:static;display:block;height:15rem;visibility:visible;transform:none}</style><title>Bootstrap Example</title><link rel="stylesheet" href="https://getbootstrap.com/2.1.1/assets/css/bootstrap.css"><link rel="stylesheet" href="https://getbootstrap.com/2.1.1/assets/css/bootstrap-responsive.css"></head><body class="embed-example"><div class="bs-docs-example form-search">
+            <input type="text" class="input-medium search-query">
+            <button type="submit" class="btn">Search</button>
+          </div><script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script><script src="https://getbootstrap.com/2.1.1/assets/js/bootstrap-transition.js"></script><script src="https://getbootstrap.com/2.1.1/assets/js/bootstrap-alert.js"></script><script src="https://getbootstrap.com/2.1.1/assets/js/bootstrap-modal.js"></script><script src="https://getbootstrap.com/2.1.1/assets/js/bootstrap-dropdown.js"></script><script src="https://getbootstrap.com/2.1.1/assets/js/bootstrap-scrollspy.js"></script><script src="https://getbootstrap.com/2.1.1/assets/js/bootstrap-tab.js"></script><script src="https://getbootstrap.com/2.1.1/assets/js/bootstrap-tooltip.js"></script><script src="https://getbootstrap.com/2.1.1/assets/js/bootstrap-popover.js"></script><script src="https://getbootstrap.com/2.1.1/assets/js/bootstrap-button.js"></script><script src="https://getbootstrap.com/2.1.1/assets/js/bootstrap-collapse.js"></script><script src="https://getbootstrap.com/2.1.1/assets/js/bootstrap-carousel.js"></script><script src="https://getbootstrap.com/2.1.1/assets/js/bootstrap-typeahead.js"></script><script src="https://getbootstrap.com/2.1.1/assets/js/bootstrap-affix.js"></script><script>document.addEventListener('DOMContentLoaded',()=>{
+  if (window.bootstrap?.Tooltip) {
+    document.querySelectorAll('[data-bs-toggle="tooltip"],[data-toggle="tooltip"]').forEach(el=>new bootstrap.Tooltip(el,{container:'body'}));
+    document.querySelectorAll('[data-bs-toggle="popover"],[data-toggle="popover"]').forEach(el=>new bootstrap.Popover(el,{container:'body'}));
+    document.querySelectorAll('[data-bs-spy="scroll"]').forEach(el=>bootstrap.ScrollSpy?.getOrCreateInstance?.(el));
+    document.querySelectorAll('[data-bs-toggle="toast"], #liveToastBtn').forEach(el=>el.addEventListener('click',()=>{
+      const selector=el.dataset.bsTarget||'#liveToast'; const toast=document.querySelector(selector); if(toast) bootstrap.Toast.getOrCreateInstance(toast).show();
+    }));
+  } else if (window.jQuery) {
+    jQuery('[data-toggle="tooltip"]').tooltip?.({container:'body'});
+    jQuery('[data-toggle="popover"]').popover?.({container:'body'});
+  }
+  document.querySelectorAll('#liveAlertBtn').forEach(button=>button.addEventListener('click',()=>{
+    const placeholder=document.querySelector('#liveAlertPlaceholder');if(!placeholder)return;
+    const alert=document.createElement('div');alert.className='alert alert-success alert-dismissible';alert.setAttribute('role','alert');
+    alert.textContent='Nice, you triggered this alert message!';
+    const close=document.createElement('button');close.type='button';close.className='btn-close';close.dataset.bsDismiss='alert';close.setAttribute('aria-label','Close');alert.append(close);placeholder.append(alert);
+  }));
+  document.querySelectorAll('.toast.show').forEach(el=>el.querySelector('[data-bs-dismiss="toast"]')?.addEventListener('click',()=>el.classList.remove('show')));
+});</script></body></html>
